@@ -7,8 +7,6 @@ class Cell
   end
 
   def is_active?(cells)
-    #   all neighbors of self
-    #   if cells.select neighbors .count < 2 return false
     cells.select { |c| neighbors.include?(c.point) }.count >= 2
   end
 

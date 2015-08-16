@@ -21,7 +21,7 @@ describe Life do
     let(:seed) { [[0, 0], [1, 1], [0, 1]] }
     let(:second_gen) { [[0, 0], [1, 1], [0, 1]] }
 
-    xit 'lets cell with three neighbors live' do
+    it 'lets cell with three neighbors live' do
       life.live_generation
       expect(life.live_cells).to eq second_gen
     end
@@ -31,7 +31,7 @@ describe Life do
     let(:seed) { [[0, 0], [1, 1], [0, 1], [1, 0], [-1, -1]] }
     let(:second_gen) { [[1, 1], [0, 1], [1, 0]] }
 
-    xit 'lets cell with three neighbors live' do
+    it 'lets cell with three neighbors live' do
       life.live_generation
       expect(life.live_cells).to eq second_gen
     end
@@ -41,7 +41,7 @@ describe Life do
     let(:seed) { [[0, 0], [1, 1], [0, 1]] }
     let(:second_gen) { [[0, 0] [1, 1], [0, 1], [0, 1]] }
 
-    xit 'becomes live cell when three neighbors are live' do
+    it 'becomes live cell when three neighbors are live' do
       life.live_generation
       expect(life.live_cells).to eq second_gen
     end

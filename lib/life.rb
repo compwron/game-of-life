@@ -1,12 +1,27 @@
+require 'pry'
+
 class Life
   def initialize(seed)
     @cells = seed.map { |c| Cell.new(c) }
   end
 
   def live_generation(next_gen_cells=[])
+    # binding.pry
+
+    cell_neighbors = {}
     @cells.each { |cell|
-      if cell.neighbor_count(@cells) == 2
-        next_gen_cells << c
+      if [2, 3].include?(cell.neighbor_count(@cells))
+        next_gen_cells << cell
+      end
+      cell.neighbors.each {|n|
+        cell_neighbors[n] ||= 0 # there is a better way to do this. push with default?
+        cell_neighbors[n] += 1
+      }
+    }
+
+    cell_neighbors.each {|k, v|
+      if v == 3
+        next_gen_cells << Cell.new(k)
       end
     }
 
@@ -28,14 +43,14 @@ class Cell
   end
 
   def neighbor_count(cells)
-    cells.select { |c| _is_neighbor(c) }
+    cells.select { |c| _is_neighbor(c) }.count
   end
 
   def _is_neighbor(cell)
-    _neighbor_positions.include?(cell.point)
+    neighbors.include?(cell.point)
   end
 
-  def _neighbor_positions
+  def neighbors
     @positions ||=
         [
             [x, y + 1],

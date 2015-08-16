@@ -6,3 +6,4 @@ wegowise boston yay tech practices
 bdettmer@gmail.com - send pycon15 blogpost.
 
 
+comprehensive concawy+life test suite - publish?

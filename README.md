@@ -1,0 +1,3 @@
+This is an implementation of game of life, as written at andconf over a series of six 45-mintute "sprints" where during each sprint, you pair program with a new partner, possibly in a new language. TDD was attempted. Some sprints had requirements such as "no talking after the first minute", "evil pairing- write the least useful implementation of the test that you can", and "no if statements".
+
+This code was not supposed to be saved. I am not sure why. The problem is obviously not anyone's intellectual property.  My pairs are not named here, and I am willing to suffer the embarrassment of people seeing my code.

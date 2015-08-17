@@ -19,7 +19,8 @@ describe Life do
 
   context "cell with three neighbors" do
     let(:seed) { [[0, 0], [1, 1], [0, 1]] }
-    let(:second_gen) { [[0, 0], [1, 1], [0, 1]] }
+    let(:second_gen) { [[0, 0], [1, 1], [0, 1], newly_alive_cell] }
+    let(:newly_alive_cell) { [1,0]}
 
     it 'lets cell with three neighbors live' do
       life.live_generation
@@ -29,7 +30,8 @@ describe Life do
 
   context "cell with four neighbors" do
     let(:seed) { [[0, 0], [1, 1], [0, 1], [1, 0], [-1, -1]] }
-    let(:second_gen) { [[1, 1], [0, 1], [1, 0]] }
+    let(:newly_alive_cells) { [[0, -1], [-1, 0]] }
+    let(:second_gen) { [[1, 1], [0, 1], [1, 0], *newly_alive_cells] }
 
     it 'lets cell with three neighbors live' do
       life.live_generation
@@ -39,7 +41,7 @@ describe Life do
 
   context "dead cell with three neighbors" do
     let(:seed) { [[0, 0], [1, 1], [0, 1]] }
-    let(:second_gen) { [[0, 0] [1, 1], [0, 1], [0, 1]] }
+    let(:second_gen) { [[0, 0], [1, 1], [0, 1], [1, 0]] }
 
     it 'becomes live cell when three neighbors are live' do
       life.live_generation

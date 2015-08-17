@@ -56,7 +56,7 @@ describe Life do
     end
 
     it 'prints x-only grid' do
-      expect(life.pretty([[0,0], [1,0]])).to eq "XX"
+      expect(life.pretty([[0,0], [1,0]])).to eq "XX\n"
     end
 
     it 'prints y-only grid' do

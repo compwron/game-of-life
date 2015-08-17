@@ -45,7 +45,7 @@ class Life
     return '' if all.include? nil
     return 'X' if all.uniq.count == 1
 
-    grid = (min_x.upto(max_x - 1)).map {|x|
+    grid = (min_x.upto(max_x)).map {|x|
       (min_y.upto(max_y - 1)).map {|y|
 
         "O"

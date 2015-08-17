@@ -41,8 +41,12 @@ class Life
     min_y = cells.sort_by {|c| c.last}.first.last
     max_y = cells.sort_by {|c| c.last}.last.last
 
-    grid = (min_x.upto(max_x)).map {|x|
-      (min_y.upto(max_y)).map {|y|
+    all = [min_x, min_y, max_x, max_y]
+    return '' if all.include? nil
+    return 'X' if all.uniq.count == 1
+
+    grid = (min_x.upto(max_x - 1)).map {|x|
+      (min_y.upto(max_y - 1)).map {|y|
 
         "O"
       }
@@ -51,7 +55,7 @@ class Life
       x = c.first + min_x.abs
       y = c.last + min_y.abs
 
-      inversed_x = max_x + 1 - x
+      inversed_x = max_x - x
       # binding.pry
       grid[y][inversed_x] = "X"
     }

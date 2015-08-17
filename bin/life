@@ -1,0 +1,12 @@
+#!/usr/bin/ruby
+
+require_relative '../lib/life'
+
+seed = [[0, 0], [1, 1], [2, 2]]
+l = Life.new(seed)
+
+while(l.live_cells != []) do
+  l.live_generation
+  puts l.pretty(l.live_cells)
+end
+

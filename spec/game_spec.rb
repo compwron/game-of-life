@@ -48,4 +48,26 @@ describe Life do
       expect(life.live_cells).to eq second_gen
     end
   end
+
+  describe '#pretty' do
+    let(:seed) {[]}
+    it 'prints tiniest' do
+      expect(life.pretty([[0,0]])).to eq "X"
+    end
+
+    it 'prints x-only grid' do
+      expect(life.pretty([[0,0], [1,0]])).to eq "XX"
+    end
+
+    it 'prints y-only grid' do
+      expect(life.pretty([[0,0], [0,1]])).to eq "X\nX"
+    end
+
+    it 'prints grid with gap' do
+      # OOX
+      # OOO
+      # XOO
+      expect(life.pretty([[-1,-1], [1,1]])).to eq "OOX\nOOO\nXOO"
+    end
+  end
 end

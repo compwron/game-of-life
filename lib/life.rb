@@ -33,6 +33,30 @@ class Life
   def live_cells
     @cells.map { |c| c.point }
   end
+
+  def pretty(cells)
+
+    min_x = cells.sort_by {|c| c.first}.first.first
+    max_x = cells.sort_by {|c| c.first}.last.first
+    min_y = cells.sort_by {|c| c.last}.first.last
+    max_y = cells.sort_by {|c| c.last}.last.last
+
+    grid = (min_x.upto(max_x)).map {|x|
+      (min_y.upto(max_y)).map {|y|
+
+        "O"
+      }
+    }
+    cells.each{|c|
+      x = c.first + min_x.abs
+      y = c.last + min_y.abs
+
+      inversed_x = max_x + 1 - x
+      # binding.pry
+      grid[y][inversed_x] = "X"
+    }
+    grid.map {|x| x.join('')}.join("\n")
+  end
 end
 
 class Cell
